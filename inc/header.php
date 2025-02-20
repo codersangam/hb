@@ -9,13 +9,13 @@ $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
 
 // Fetch settings data
 $sql = "SELECT site_title, site_about FROM settings LIMIT 1";
-$result = $conn->query($sql);
+$resulttt = $con->query($sql);
 
 $site_title = "Default Title"; // Fallback title
 $site_about = "Default About"; // Fallback about
 
-if ($result->num_rows > 0) {
-  $row = $result->fetch_assoc();
+if ($resulttt->num_rows > 0) {
+  $row = $resulttt->fetch_assoc();
   $site_title = $row['site_title'];
   $site_about = $row['site_about'];
 }
