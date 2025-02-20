@@ -1,13 +1,9 @@
 <div class="container-fluid bg-white mt-5">
   <div class="row">
     <div class="col-lg-4 p-4">
-      <h3 class="h-font fw-bold fs-3 mb-2n ">HOTEL SARA</h3>
+      <h3 class="h-font fw-bold fs-3 mb-2n "><?php echo htmlspecialchars($site_title); ?></h3>
       <p class="text-arrange ">
-        Hotel Sara—where luxury meets comfort.
-        Enjoy elegant stays, comfort rooms,
-        warm hospitality <br> in a prime location.
-        Whether for a business or <br>leisure,
-        your perfect retreat awaits!
+        <?php echo htmlspecialchars($site_about); ?>
       </p>
     </div>
 

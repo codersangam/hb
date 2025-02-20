@@ -6,11 +6,24 @@ require('admin/inc/essentials.php');
 $contact_q = "SELECT * FROM `contact_detailss` WHERE `sr_no`=?";
 $values = [1];
 $contact_r = mysqli_fetch_assoc(select($contact_q, $values, 'i'));
+
+// Fetch settings data
+$sql = "SELECT site_title, site_about FROM settings LIMIT 1";
+$result = $conn->query($sql);
+
+$site_title = "Default Title"; // Fallback title
+$site_about = "Default About"; // Fallback about
+
+if ($result->num_rows > 0) {
+  $row = $result->fetch_assoc();
+  $site_title = $row['site_title'];
+  $site_about = $row['site_about'];
+}
 ?>
 
 <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">HOTEL SARA</a>
+    <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php"><?php echo htmlspecialchars($site_title); ?></a>
     <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
